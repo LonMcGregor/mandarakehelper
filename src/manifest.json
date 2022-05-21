@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Mandarake Helper",
+    "version": "1.0",
+    "author": "LonMcGregor",
+
+    "description": "Helper extension for browsing mandarake",
+    "icons": {
+        "16": "icon16.png",
+        "24": "icon24.png",
+        "32": "icon32.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+
+    "permissions": [
+        "declarativeNetRequest",
+        "activeTab"
+    ],
+    "declarative_net_request" : {
+        "rule_resources" : [{
+          "id": "ruleset_1",
+          "enabled": true,
+          "path": "rules_1.json"
+        }]
+      },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["https://*.mandarake.co.jp/*"],
+    "content_scripts": [
+        {
+          "matches": ["https://*.mandarake.co.jp/*"],
+          "js": ["content.js"],
+          "css": ["content.css"]
+        }
+    ]
+}

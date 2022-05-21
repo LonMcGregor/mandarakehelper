@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "transform": {
+                    "queryTransform": {
+                        "addOrReplaceParams": [
+                            {
+                                "key": "lang",
+                                "value": "en"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "condition": {
+            "regexFilter": "(https://order.mandarake.co.jp/*)",
+            "resourceTypes": [
+                "main_frame"
+            ]
+        }
+    }
+]
