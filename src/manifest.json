@@ -15,7 +15,8 @@
 
     "permissions": [
         "declarativeNetRequest",
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "declarative_net_request" : {
         "rule_resources" : [{
