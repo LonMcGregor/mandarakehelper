@@ -1,11 +1,7 @@
-.chead-11 /* big banners */
-
-{
-    display: none;
-}
-
-
 .extbtn {
-    z-index: 222222;
-    position: absolute
+    font-size: 20px;
+    line-height: 100%;
+    margin: 0 0 3px 0;
+    padding: 10px 0 10px 0;
+    width: 100%;
 }

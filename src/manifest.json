@@ -28,10 +28,10 @@
     "background": {
       "service_worker": "background.js"
     },
-    "host_permissions": ["https://*.mandarake.co.jp/*"],
+    "host_permissions": ["https://order.mandarake.co.jp/"],
     "content_scripts": [
         {
-          "matches": ["https://*.mandarake.co.jp/*"],
+          "matches": ["https://order.mandarake.co.jp/order/detailPage/*"],
           "js": ["content.js"],
           "css": ["content.css"]
         }
