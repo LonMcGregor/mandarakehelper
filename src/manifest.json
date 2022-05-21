@@ -3,7 +3,6 @@
     "name": "Mandarake Helper",
     "version": "1.0",
     "author": "LonMcGregor",
-
     "description": "Helper extension for browsing mandarake",
     "icons": {
         "16": "icon16.png",
@@ -12,28 +11,41 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-
     "permissions": [
         "declarativeNetRequest",
         "activeTab",
         "storage"
     ],
-    "declarative_net_request" : {
-        "rule_resources" : [{
-          "id": "ruleset_1",
-          "enabled": true,
-          "path": "rules_1.json"
-        }]
-      },
-    "background": {
-      "service_worker": "background.js"
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules_1.json"
+            }
+        ]
     },
-    "host_permissions": ["https://order.mandarake.co.jp/"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://order.mandarake.co.jp/"
+    ],
     "content_scripts": [
         {
-          "matches": ["https://order.mandarake.co.jp/order/detailPage/*"],
-          "js": ["content.js"],
-          "css": ["content.css"]
+            "matches": [
+                "https://order.mandarake.co.jp/order/detailPage/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ]
         }
-    ]
+    ],
+    "action": {
+        "default_title": "View all items",
+        "default_popup": "popup.html"
+    }
 }

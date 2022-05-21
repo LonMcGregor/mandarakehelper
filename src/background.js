@@ -5,7 +5,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             // note: array concat returns a new array
             // array.push modifies the original and returns the size
             const thearray = JSON.parse(storage.thelist);
-            thearray.push(request.additem);
+            const thenewitem = JSON.parse(request.additem);
+            thearray.push(thenewitem);
             return chrome.storage.local.set({
                 "thelist": JSON.stringify(thearray)
             })
