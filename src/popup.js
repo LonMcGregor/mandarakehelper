@@ -6,7 +6,7 @@ chrome.storage.local.get({"thelist": "[]"})
     const order_of_stores = ["placeholder"];
 
     // get a refrence to the header row and table
-    const table = document.querySelector("table");
+    const table = document.querySelector("table tbody");
     const head = document.querySelector("table > tbody > tr");
 
     // process each stored item
@@ -57,7 +57,7 @@ chrome.storage.local.get({"thelist": "[]"})
             }
             // set the price of the item into this store's cell
             storeindex = order_of_stores.indexOf(store);
-            stores[storeindex].innerHTML = stores[storeindex].innerHTML + "<br> " + price;
+            stores[storeindex].innerHTML = stores[storeindex].innerHTML + price + "<br>";
         }
     })
 })

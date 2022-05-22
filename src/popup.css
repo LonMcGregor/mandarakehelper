@@ -1,0 +1,18 @@
+table {
+    border-collapse:collapse;
+}
+table > tbody > tr:nth-child(1) {
+    background: #557087;
+    position: sticky;
+    color: white;
+    top: 0px;
+}
+table > tbody > tr:nth-child(even) {
+    background: #ddd
+}
+table td, table th {
+    padding: 8px;
+}
+table td:nth-child(1) {
+    max-width: 300px
+}
