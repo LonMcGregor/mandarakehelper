@@ -7,12 +7,15 @@ document.querySelector(".operate").appendChild(btn);
 
 function add_this_item(e) {
     let prices = [];
-    prices.push(
-        [
-            document.querySelector(".content_head .shop").innerText,
-            document.querySelector(".basicinfo .__price + p").innerText
-        ]
-    );
+    if (!document.querySelector(".soldout")) {
+        prices.push(
+            [
+                document.querySelector(".content_head .shop").innerText,
+                document.querySelector(".basicinfo .__price + p").innerText
+            ]
+        );
+    }
+
     // get other alt stores and prices
     prices = prices.concat(Array.from(document.querySelectorAll(".other_item .block")).map(x => [
         x.querySelector(".shop").innerText,
