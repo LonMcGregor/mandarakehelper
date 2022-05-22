@@ -5,7 +5,7 @@ btn.addEventListener("click", add_this_item);
 document.querySelector(".operate").appendChild(btn);
 
 
-function add_this_item(e){
+function add_this_item(e) {
     let prices = [];
     prices.push(
         [
@@ -27,7 +27,7 @@ function add_this_item(e){
     chrome.runtime.sendMessage({
         "additem": JSON.stringify(data_item)
     })
-    .then(response => {
-        e.target.innerText = "Added!";
-    });
+        .then(response => {
+            e.target.innerText = "Added!";
+        });
 }
