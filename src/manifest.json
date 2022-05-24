@@ -29,7 +29,8 @@
         "service_worker": "background.js"
     },
     "host_permissions": [
-        "https://order.mandarake.co.jp/"
+        "https://order.mandarake.co.jp/",
+        "https://tools.mandarake.co.jp/"
     ],
     "content_scripts": [
         {

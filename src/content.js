@@ -10,21 +10,21 @@ function add_this_item(e) {
     if (!document.querySelector(".soldout")) {
         prices.push(
             [
-                document.querySelector(".content_head .shop").innerText,
-                document.querySelector(".basicinfo .__price + p").innerText
+                document.querySelector(".content_head .shop").innerText.trim(),
+                document.querySelector(".basicinfo .__price + p").innerText.trim()
             ]
         );
     }
 
     // get other alt stores and prices
     prices = prices.concat(Array.from(document.querySelectorAll(".other_item .block")).map(x => [
-        x.querySelector(".shop").innerText,
-        x.querySelector(".price").innerText
+        x.querySelector(".shop").innerText.trim(),
+        x.querySelector(".price").innerText.trim()
     ]));
     // add all to storage
     data_item = {
         "url": window.location.href,
-        "title": document.querySelector("h1").innerText,
+        "title": document.querySelector("h1").innerText.trim(),
         "prices": prices
     };
     chrome.runtime.sendMessage({
