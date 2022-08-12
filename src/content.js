@@ -7,7 +7,7 @@ document.querySelector(".operate").appendChild(btn);
 
 function add_this_item(e) {
     let prices = [];
-    if (!document.querySelector(".soldout")) {
+    if (!document.querySelector(".detail_panel .soldout")) {
         prices.push(
             [
                 document.querySelector(".content_head .shop").innerText,
