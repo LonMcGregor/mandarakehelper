@@ -19,9 +19,26 @@ table th {
 }
 
 table td:nth-child(1) {
-    max-width: 300px
+    width: 180px;
+    position: sticky;
+    left: 0px;
+    background: whitesmoke;
+}
+
+tr > td:nth-child(1) {
+    display: flex;
+}
+
+td a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 button {
     margin-right: 15px;
+}
+
+td:hover:after{
+    content:attr(title)
 }
