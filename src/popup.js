@@ -33,6 +33,7 @@ chrome.storage.local.get({ "thelist": "[]" })
             itemlink.href = item.url;
             itemlink.innerText = item.title.substring(item.title.length-15);
             itemlink.title = item.title;
+            itemlink.target = "_blank";
             itemcell.appendChild(itemlink);
             row.appendChild(itemcell);
             table.appendChild(row);
