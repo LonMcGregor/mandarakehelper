@@ -86,23 +86,60 @@ chrome.storage.local.get({ "thelist": "[]" })
             }
         })
 
-        const row = document.createElement("tr");
-        for (let i = 0; i < store_running_totals.length; i++) {
+        const postagecell = document.createElement("td");
+        const postlabel = document.createElement("label");
+        postlabel.innerText = "P&P = ";
+        const postage = document.createElement("input");
+        postage.type = "number";
+        postage.id = "postage";
+        postage.step = "100";
+        postage.value = POSTAGE;
+        postage.addEventListener("input", e => {
+            for (let i = 1; i < store_running_totals.length; i++) {
+                const cell = document.querySelector("#totals td:nth-child("+(i+1)+")")
+                cell.innerText = "£" + Number.parseFloat((store_running_totals[i]+Number.parseInt(document.querySelector("#postage").value))*Number.parseFloat(document.querySelector("#rate").value)).toFixed(2);
+            }
+        });
+        postagecell.appendChild(postlabel);
+        postagecell.appendChild(postage);
+        const rowpp = document.createElement("tr");
+        rowpp.id="postagerow"
+        rowpp.appendChild(postagecell);
+        for (let i = 1; i < store_running_totals.length; i++) {
             const cell = document.createElement("td")
             cell.innerText = store_running_totals[i] + "円";
             cell.title = "£" + Number.parseFloat(store_running_totals[i]*CONVERSION_RATE).toFixed(2);
-            row.appendChild(cell);
-        }
-        document.querySelector("tbody").appendChild(row);
-
-        const rowpp = document.createElement("tr");
-        for (let i = 0; i < store_running_totals.length; i++) {
-            const cell = document.createElement("td")
-            cell.innerText = "£" + Number.parseFloat((store_running_totals[i]+POSTAGE)*CONVERSION_RATE).toFixed(2);
             rowpp.appendChild(cell);
         }
         document.querySelector("tbody").appendChild(rowpp);
+
+        const ratecell = document.createElement("td");
+        const ratelabel = document.createElement("label");
+        ratelabel.innerText = "円:£ = ";
+        const rate = document.createElement("input");
+        rate.type = "number";
+        rate.id = "rate";
+        rate.step = "0.0001"
+        rate.value = CONVERSION_RATE;
+        rate.addEventListener("input", e => {
+            for (let i = 1; i < store_running_totals.length; i++) {
+                const cell = document.querySelector("#totals td:nth-child("+(i+1)+")")
+                cell.innerText = "£" + Number.parseFloat((store_running_totals[i]+Number.parseInt(document.querySelector("#postage").value))*Number.parseFloat(document.querySelector("#rate").value)).toFixed(2);
+            }
+        });
+        const rowtotal = document.createElement("tr");
+        rowtotal.id = "totals";
+        ratecell.appendChild(ratelabel);
+        ratecell.appendChild(rate);
+        rowtotal.appendChild(ratecell);
+        for (let i = 1; i < store_running_totals.length; i++) {
+            const cell = document.createElement("td")
+            cell.innerText = "£" + Number.parseFloat((store_running_totals[i]+POSTAGE)*CONVERSION_RATE).toFixed(2);
+            rowtotal.appendChild(cell);
+        }
+        document.querySelector("tbody").appendChild(rowtotal);
     })
+
 
 function openInTab(event){
     // Only allow opening one tab at a time from the popup

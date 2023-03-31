@@ -42,3 +42,7 @@ button {
 td:hover:after{
     content:attr(title)
 }
+
+input#postage, input#rate {
+    width: 5em;
+}
