@@ -16,8 +16,8 @@ function add_this_item(e) {
         );
     }
 
-    // get other alt stores and prices
-    prices = prices.concat(Array.from(document.querySelectorAll(".other_item .block")).map(x => [
+    // get other alt stores and prices. Filter on .addcart as sold out items do not have this class in the store link
+    prices = prices.concat(Array.from(document.querySelectorAll(".other_item .block")).filter(x => x.querySelector(".addcart")).map(x => [
         x.querySelector(".shop").innerText,
         x.querySelector(".price").innerText
     ]));
