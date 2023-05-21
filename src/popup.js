@@ -82,7 +82,7 @@ chrome.storage.local.get({ "thelist": "[]" })
                 stores[storeindex].title = "£" + Number.parseFloat(Number(price.split("yen")[0])*CONVERSION_RATE).toFixed(2);
                 stores[storeindex].innerHTML = stores[storeindex].innerHTML + price + "<br>";
                 // turn the "X yen" string into a number as best as possible
-                store_running_totals[storeindex] = store_running_totals[storeindex] + Number(price.split("yen")[0]);
+                store_running_totals[storeindex] = store_running_totals[storeindex] + Number(price.replace(",","").split("yen")[0]);
             }
         })
 
